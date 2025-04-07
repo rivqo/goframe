@@ -1,0 +1,172 @@
+{{ define "content" }}
+<div class="container">
+    <h1>{{ .title }}</h1>
+    
+    <div class="contact-section">
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>
+                Have questions about GoFrame? Want to report a bug or request a feature?
+                We'd love to hear from you!
+            </p>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <h3>GitHub</h3>
+                    <p>
+                        For bug reports and feature requests, please use our
+                        <a href="https://github.com/goframe/goframe/issues" target="_blank">GitHub Issues</a> page.
+                    </p>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>Community</h3>
+                    <p>
+                        Join our community on
+                        <a href="https://discord.gg/goframe" target="_blank">Discord</a> or
+                        <a href="https://gophers.slack.com/messages/goframe" target="_blank">Slack</a>
+                        to chat with other GoFrame users and the development team.
+                    </p>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>Email</h3>
+                    <p>
+                        For general inquiries, you can reach us at
+                        <a href="mailto:info@goframe.dev">info@goframe.dev</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <h2>Contact Form</h2>
+            <form action="/contact" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="error-message" data-error="name"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message" data-error="email"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                    <div class="error-message" data-error="subject"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <div class="error-message" data-error="message"></div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ define "styles" }}
+<style>
+    .contact-section {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+    
+    @media (min-width: 768px) {
+        .contact-section {
+            flex-direction: row;
+        }
+        
+        .contact-info,
+        .contact-form {
+            flex: 1;
+        }
+    }
+    
+    .contact-methods {
+        margin-top: 1.5rem;
+    }
+    
+    .contact-method {
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-method h3 {
+        margin-bottom: 0.5rem;
+        color: var(--dark-color);
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 0.25rem;
+        font-family: inherit;
+        font-size: 1rem;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(100, 255, 27, 0.2);
+    }
+    
+    .error-message {
+        color: #e53e3e;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        min-height: 1.25rem;
+    }
+    
+    .is-invalid {
+        border-color: #e53e3e !important;
+    }
+</style>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Form validation
+        validateForm('form', {
+            'name': [
+                { type: 'required', message: 'Please enter your name' }
+            ],
+            'email': [
+                { type: 'required', message: 'Please enter your email address' },
+                { type: 'email', message: 'Please enter a valid email address' }
+            ],
+            'subject': [
+                { type: 'required', message: 'Please enter a subject' }
+            ],
+            'message': [
+                { type: 'required', message: 'Please enter your message' },
+                { type: 'minLength', value: 10, message: 'Your message must be at least 10 characters long' }
+            ]
+        });
+    });
+</script>
+{{ end }}
+

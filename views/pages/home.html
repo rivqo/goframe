@@ -1,0 +1,70 @@
+{{ define "content" }}
+<div class="container">
+    <h1>{{ .title }}</h1>
+    <p>Welcome to GoFrame, a Laravel-inspired web framework for Go.</p>
+    
+    <div class="features">
+        <div class="feature">
+            <h2>Simple Routing</h2>
+            <p>Define your routes in a clean, expressive syntax.</p>
+        </div>
+        <div class="feature">
+            <h2>ORM System</h2>
+            <p>Work with your database using a simple, elegant ORM.</p>
+        </div>
+        <div class="feature">
+            <h2>Authentication</h2>
+            <p>User authentication and authorization out of the box.</p>
+        </div>
+    </div>
+    
+    <div class="cta">
+        <a href="/docs" class="btn btn-primary">Get Started</a>
+        <a href="/docs/examples" class="btn btn-secondary">View Examples</a>
+    </div>
+</div>
+{{ end }}
+
+{{ define "styles" }}
+<style>
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+    
+    .feature {
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        background-color: #f8f9fa;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cta {
+        margin: 3rem 0;
+        text-align: center;
+    }
+    
+    .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.25rem;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 0.5rem;
+    }
+    
+    .btn-primary {
+        background-color: #64FF1B;
+        color: #220940;
+    }
+    
+    .btn-secondary {
+        background-color: #220940;
+        color: white;
+        border: 1px solid #64FF1B;
+    }
+</style>
+{{ end }}
+

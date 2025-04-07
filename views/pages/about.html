@@ -1,0 +1,121 @@
+{{ define "content" }}
+<div class="container">
+    <h1>{{ .title }}</h1>
+    
+    <div class="about-section">
+        <div class="about-image">
+            <img src="/assets/images/about.jpg" alt="About GoFrame" />
+        </div>
+        <div class="about-content">
+            <h2>Our Missifon</h2>
+            <p>
+                GoFrame was created to provide Go developers with a clean, elegant framework for building web applications.
+                Inspired by Laravel's simplicity and expressiveness, GoFrame aims to make web development in Go more
+                accessible and enjoyable.
+            </p>
+            
+            <h2>Our Team</h2>
+            <p>
+                GoFrame is maintained by a team of passionate Go developers who believe in creating
+                high-quality, well-documented, and easy-to-use software. We're committed to continuous
+                improvement and responding to the needs of our community.
+            </p>
+            
+            <h2>Why GoFrame?</h2>
+            <ul class="feature-list">
+                <li>
+                    <strong>Simplicity</strong>: GoFrame provides a clean, intuitive API that makes web development straightforward.
+                </li>
+                <li>
+                    <strong>Performance</strong>: Built on Go's excellent performance characteristics, GoFrame adds minimal overhead.
+                </li>
+                <li>
+                    <strong>Flexibility</strong>: Use as much or as little of the framework as you need.
+                </li>
+                <li>
+                    <strong>Batteries Included</strong>: Authentication, ORM, migrations, and more are included out of the box.
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="cta-section">
+        <h2>Get Involved</h2>
+        <p>
+            GoFrame is an open-source project, and we welcome contributions from the community.
+            Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.
+        </p>
+        <div class="cta-buttons">
+            <a href="https://github.com/goframe/goframe" class="btn btn-primary">GitHub</a>
+            <a href="/docs/community" class="btn btn-secondary">Join the Community</a>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ define "styles" }}
+    {{ template "styles" . }}
+<style>
+    .about-section {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+    
+    @media (min-width: 768px) {
+        .about-section {
+            flex-direction: row;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-content {
+            flex: 2;
+        }
+    }
+    
+    .about-image img {
+        width: 100%;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .feature-list li {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+    
+    .feature-list li:before {
+        content: "✓";
+        color: var(--primary-color);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+    }
+    
+    .cta-section {
+        background-color: var(--gray-color);
+        padding: 2rem;
+        border-radius: 0.5rem;
+        margin: 3rem 0;
+        text-align: center;
+    }
+    
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+</style>
+{{ end }}
+
