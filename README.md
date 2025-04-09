@@ -1,6 +1,6 @@
 # GoFrame - A Laravel-Inspired Web Framework for Go
 
-![GoFrame Logo](https://via.placeholder.com/150x50?text=GoFrame) <!-- Add your logo here -->
+![GoFrame Logo](https://raw.githubusercontent.com/rivqo/goframe/refs/heads/main/public/Goframe-logo.png) <!-- Add your logo here -->
 
 ## Introduction
 
