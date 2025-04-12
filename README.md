@@ -39,7 +39,7 @@ Transition smoothly to Go with familiar concepts and structure while enjoying Go
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/goframe.git
+git clone https://github.com/rivqo/goframe.git
 
 # Navigate to project
 cd goframe
